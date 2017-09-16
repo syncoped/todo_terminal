@@ -50,7 +50,6 @@ class todo_dict(object):
             self.dict = {}
         else:
             input("\n Nothing  was deleted. Press any key to continue. \n")
-
         return self.dict
 
 
