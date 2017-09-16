@@ -2,7 +2,6 @@
 
 import argparse
 import json
-from sys import argv
 from collections import OrderedDict
 
 
