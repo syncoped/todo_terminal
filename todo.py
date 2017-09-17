@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import os
 from collections import OrderedDict
 
 
@@ -76,11 +77,18 @@ def display_todo(input_dict):
 
 
 def main():
-    json_filepath = '/usr/local/bin/todo_index.json'
-
-    # opens JSON file. Change 'index.json' to a given path if you do not wish
+    # Change 'todo_index.json' to a given directory if you do not wish
     # to store the file with the script.
+    json_dirpath = os.path.dirname(os.path.realpath(__file__))
+    json_filename = "todo_index.json"
+    json_filepath = os.path.join(json_dirpath, json_filename)
 
+    # initialize json file if doesn't exist
+    if not os.path.exists(json_filepath):
+        with open(json_filepath,"w") as fp:
+            fp.write("{}")
+
+    # open json file
     with open(json_filepath, 'r') as infile:
         JSON_dict = json.load(infile)
 
